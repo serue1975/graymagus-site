@@ -47,7 +47,7 @@ header nav a{text-decoration:none}header nav a:hover{color:var(--ink)}
 .gridbox{position:relative;display:grid;justify-items:end;align-items:center}
 .dots{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,20px);width:min(100%,max(300px,46vh))}
 .dots i{aspect-ratio:1;border-radius:50%;background:var(--red);transition:transform .5s cubic-bezier(.2,.8,.2,1),background .4s}
-.dots i.me{background:var(--ink);position:relative;z-index:3;transition:background .4s}
+.dots i.me{background:#8C8C8C;position:relative;z-index:3;transition:background .4s}
 @media (prefers-reduced-motion:reduce){.dots i{transition:none}}
 
 /* work — dark band */
@@ -225,7 +225,7 @@ if(!calm){
       d.style.transform=`translate(${dx*k*.12}px,${dy*k*.12}px) scale(${1-k*.35})`;
     }
   });
-  let t=0;setInterval(()=>{const d=ds[(t++*7)%15];d.style.background='var(--ink)';setTimeout(()=>d.style.background='',900)},1800);
+  let t=0;setInterval(()=>{const d=ds[(t++*7)%15];d.style.background='#8C8C8C';setTimeout(()=>d.style.background='',900)},1800);
 }
 
 /* the 'me' dot falls into the dark band on scroll */
