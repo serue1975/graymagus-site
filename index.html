@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gray.Magus</title>
+<meta name="description" content="GrayMagus Design Lab — 이세희. Brand, product and digital experience design since 1999.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap">
+<style>
+/* VOICE: quiet, edited, a designer's own archive — air and restraint
+   IDEA: the site behaves like his DOT ARCHIVE poster series — the hero IS a poster
+   PICTURE: 4x4 base grid of red dots that leans toward the cursor; one dot is "him"
+   COLOUR and TYPE: cool gray ground, ink #1B1E21, single accent #FF2E56; Pretendard
+   LAYOUT: poster hero full width, filter row, 4:5 gallery, ruled footer with links */
+:root{color-scheme:light dark;--cb:44px;
+  --bg:light-dark(#F3F4F5,#141618);--card:light-dark(#E6E8EA,#1F2225);
+  --ink:light-dark(#1B1E21,#ECEEF0);--mute:light-dark(#6B727A,#8C939B);
+  --line:light-dark(#D3D6DA,#2C3034);--red:#FF2E56;--r:6px}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Pretendard,"Pretendard Variable","Noto Sans KR",system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,56px)}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{display:inline-flex;align-items:baseline;font-weight:800;font-size:21px;letter-spacing:-.02em;text-decoration:none;color:light-dark(#111B2E,#ECEEF0)}
+.logo .g{color:#8C8C8C}
+.logo i{width:.24em;height:.24em;border-radius:50%;background:var(--red);margin:0 .05em 0 .06em;align-self:baseline;transform:translateY(-.02em)}
+header nav{display:flex;gap:20px;font-size:14px;color:var(--mute)}
+header nav a{text-decoration:none}header nav a:hover{color:var(--ink)}
+
+/* poster hero */
+.kv{background:var(--card);position:relative;z-index:2;min-height:100vh;min-height:100svh;display:flex;flex-direction:column}
+.kv>.wrap{flex:1;display:flex;flex-direction:column;width:100%}
+.poster{position:relative;flex:1;min-height:520px;padding:clamp(40px,12vh,180px) 0 calc(var(--cb) + 48px + clamp(56px,16vh,240px));display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:24px;align-items:center}
+.poster>div:first-child{align-self:start}
+.poster .gridbox{align-self:end}
+.poster .bar{width:36px;height:4px;background:var(--red);margin-bottom:clamp(16px,2vw,28px)}
+.poster h1{margin:0 0 0 -.04em;font-size:clamp(38px,5.2vw,80px);line-height:1;font-weight:800;letter-spacing:-.01em;white-space:nowrap}
+.poster h1 i{font-style:normal;color:var(--red)}
+.poster .sub{margin-top:clamp(18px,2.4vw,32px);color:var(--mute);font-size:clamp(16px,1.1vw,18px);line-height:1.6;max-width:26em}
+.vert{position:absolute;left:clamp(20px,2.6vw,44px);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:11px;color:var(--mute);letter-spacing:.08em}
+.credit{position:absolute;left:0;right:0;bottom:var(--cb);display:flex;justify-content:space-between;align-items:end;font-size:12px;font-weight:700;line-height:1.3}
+.credit span:last-child{text-align:right}
+.credit em{font-style:normal;color:var(--red)}
+.gridbox{position:relative;display:grid;justify-items:end;align-items:center}
+.dots{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,20px);width:min(100%,max(300px,46vh))}
+.dots i{aspect-ratio:1;border-radius:50%;background:var(--red);transition:transform .5s cubic-bezier(.2,.8,.2,1),background .4s}
+.dots i.me{background:var(--ink);position:relative;z-index:3;transition:background .4s}
+@media (prefers-reduced-motion:reduce){.dots i{transition:none}}
+
+/* work — dark band */
+.works{position:relative;z-index:1;background:light-dark(#24272A,#1E2124);color:#ECEEF0;padding:clamp(120px,18vw,280px) 0 clamp(48px,7vw,96px)}
+.giant{margin:0;padding:0 1.6vw;font-size:13vw;font-weight:800;line-height:.86;letter-spacing:-.035em;white-space:nowrap;color:light-dark(#3D4145,#34383C);user-select:none}
+.works .lead{margin:clamp(20px,2.4vw,36px) 0 clamp(36px,4vw,56px);color:#9AA1A8;font-size:15px}
+.wl{list-style:none;margin:0;padding:0;border-top:1px solid #3A3F44}
+.wl li{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:0 24px;padding:18px 0;line-height:1.4;border-bottom:1px solid #3A3F44;align-items:baseline}
+.wl .y{color:#8A9199;font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.wl .p{font-size:clamp(17px,1.6vw,20px);font-weight:500}
+.wl .s{grid-column:2;color:#9AA1A8;font-size:14px;margin-top:2px}
+.pdf{display:inline-flex;gap:8px;align-items:center;min-height:44px;margin-top:clamp(56px,7vw,96px);color:#ECEEF0;text-decoration:none;font-size:15px}
+.pdf span{transition:transform .3s}.pdf:hover{color:var(--red)}.pdf:hover span{transform:translate(2px,-2px)}
+.more{margin:clamp(40px,5vw,64px) 0 14px;font-size:13px;font-weight:600;color:#8A9199}
+.ml{list-style:none;margin:0;padding:0;columns:2 320px;column-gap:48px;border-top:1px solid #3A3F44;padding-top:8px}
+.ml li{break-inside:avoid;display:grid;grid-template-columns:5.6em minmax(0,1fr);gap:12px;padding:9px 0;font-size:14px;color:#C9CED3}
+.ml .y{color:#8A9199;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ml small{display:block;color:#8A9199;font-size:13px}
+@media(max-width:600px){.wl li{grid-template-columns:1fr}.wl .s{grid-column:1}}
+
+/* gallery */
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin:clamp(48px,7vw,88px) 0 20px}
+.head h2{margin:0;font-size:22px;font-weight:700}
+.head p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{font:inherit;font-size:14px;height:40px;padding:0 16px;border-radius:var(--r);border:1px solid var(--line);background:none;color:var(--mute);cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.filters button:focus-visible,.tile:focus-visible,.lb button:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:clamp(12px,1.6vw,20px)}
+.tile{all:unset;cursor:pointer;display:block}
+.tile .im{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--card)}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.tile:hover img{transform:scale(1.03)}
+.tile .n{position:absolute;right:10px;top:10px;font-size:12px;background:rgba(0,0,0,.55);color:#fff;padding:2px 8px;border-radius:99px}
+.tile .cap{display:flex;justify-content:space-between;gap:8px;padding:10px 2px 0;font-size:14px}
+.tile .cap span:last-child{color:var(--mute);font-size:12px;flex:none;padding-top:2px}
+.note{color:var(--mute);font-size:13px;margin-top:14px}
+
+footer{margin-top:clamp(56px,8vw,104px);border-top:1px solid var(--line);padding:28px 0 40px;display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between;font-size:14px}
+footer .links{display:flex;flex-wrap:wrap;gap:12px 24px}
+footer .links a{text-decoration:none}footer .links a:hover{color:var(--red)}
+footer .mute{color:var(--mute)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(12,13,15,.94);color:#ECEEF0;display:none;grid-template-rows:auto minmax(0,1fr) auto;z-index:10}
+.lb.on{display:grid}
+.lb .top{display:flex;justify-content:space-between;align-items:center;padding:14px max(3vw,14px);font-size:14px}
+.lb .top b{font-weight:600}.lb .top span{color:#8C939B;margin-left:8px}
+.lb button{font:inherit;background:none;border:0;color:inherit;cursor:pointer;width:44px;height:44px;font-size:22px;border-radius:var(--r)}
+.lb .stage{position:relative;display:grid;place-items:center;padding:0 56px;touch-action:pan-y}
+.lb .stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:4px;user-select:none}
+.lb .prev,.lb .next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb .prev{left:6px}.lb .next{right:6px}
+.lb .pips{display:flex;justify-content:center;gap:8px;padding:16px}
+.lb .pips i{width:7px;height:7px;border-radius:50%;background:#4A5056}
+.lb .pips i.on{background:var(--red)}
+@media(max-width:1100px){.vert{display:none}}
+@media(max-width:600px){
+  .poster{grid-template-columns:1fr;padding:40px 0 calc(var(--cb) + 48px + 32px);align-content:space-between}
+  .dots{width:100%}
+  .vert{display:none}
+  .gridbox{justify-items:stretch}
+  header nav{gap:14px}
+  .lb .stage{padding:0 8px}.lb .prev,.lb .next{display:none}
+}
+</style>
+</head>
+<body>
+<div class="kv">
+  <div class="vert" aria-hidden="true">OBSERVE · QUESTION · REFINE · REPEAT</div>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#" aria-label="Gray.Magus"><span class="g">Gray</span><i></i><span>Magus</span></a>
+    <nav><a href="#work">Work</a><a href="#archive" id="navArchive" hidden>Archive</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <section class="poster" aria-label="GRAY.MAGUS">
+    <div>
+      <div class="bar"></div>
+      <h1>FINDING<br>ESSENCE<br>IN HESITATION<i>.</i></h1>
+      <p class="sub">망설임 속에서 본질을 찾는다.<br>디자인하고, 쓰고, 실험하는 작업 아카이브.</p>
+    </div>
+    <div class="gridbox"><div class="dots" id="dots"></div></div>
+    <div class="credit">
+      <span>/<br>BASE GRID<br>04×04</span>
+      <span><em>■</em><br>GRAYMAGUS DESIGN LAB<br>GRAY.C DOT ARCHIVE</span>
+    </div>
+  </section>
+</div>
+</div>
+<section class="works" id="work">
+  <h2 class="giant" id="giant">Selected Works.</h2>
+  <div class="wrap">
+    <p class="lead">Selected projects across brand, product and digital experience.</p>
+    <ol class="wl" id="wl"></ol>
+    <h3 class="more">Other projects</h3>
+    <ul class="ml" id="ml"></ul>
+    <a class="pdf" href="https://drive.google.com/file/d/17C5fMi4ospM_0rRPzDGB9SYFLH2U2voo/view?usp=sharing" target="_blank" rel="noopener" id="pdf2">Full Portfolio (PDF) <span>↗</span></a>
+  </div>
+</section>
+<div class="wrap">
+  <section id="archive" hidden>
+  <div class="head">
+    <div><h2>Archive</h2><p>글, 책, 그래픽. 만들어 온 것들.</p></div>
+    <div class="filters" id="filters" role="group" aria-label="필터"></div>
+  </div>
+  <div class="gal" id="gal"></div>
+  </section>
+
+  <footer id="contact">
+    <div>
+      <div>Available for meaningful projects.</div>
+      <div class="mute">director@graymagus.com</div>
+    </div>
+    <div class="links">
+      <a href="https://drive.google.com/file/d/17C5fMi4ospM_0rRPzDGB9SYFLH2U2voo/view?usp=sharing" target="_blank" rel="noopener" id="pdf">Portfolio PDF ↗</a>
+      <a href="https://www.instagram.com/grayc.log/">Instagram ↗</a>
+      <a href="https://www.threads.net/@grayc.log">Threads ↗</a>
+    </div>
+    <div class="mute" style="width:100%">© GRAYMAGUS DESIGN LAB · 이세희</div>
+  </footer>
+</div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="이미지 보기">
+  <div class="top"><div><b id="lbT"></b><span id="lbG"></span></div><button id="lbX" aria-label="닫기">✕</button></div>
+  <div class="stage" id="stage">
+    <img id="lbI" alt="">
+    <button class="prev" id="lbP" aria-label="이전">‹</button>
+    <button class="next" id="lbN" aria-label="다음">›</button>
+  </div>
+  <div class="pips" id="pips"></div>
+</div>
+
+<script>
+{
+let POSTS=[]; // filled from posts.json (built automatically from the /posts folders)
+const src=n=>n;
+const $=id=>document.getElementById(id);
+
+/* selected works */
+const WORK=[
+  ['2026','LS Mtron — MyFarmPlus','Product Design Lead · UX Strategy · Design System'],
+  ['2022–2025','Samsung Global CX','Lead Designer · DesignOps · Visual System Architect'],
+  ['2025','BeyondVina','Brand Naming · Brand Identity'],
+  ['2024–2026','NGU — Never Give Up','Brand Identity · Web Design & Development'],
+  ['2024','PBT Career Platform','Brand Identity · Web UX/UI'],
+  ['2024','THE LAON','Brand Identity'],
+  ['2023','SM Entertainment — Beyond LIVE','Web & Mobile UX/UI'],
+];
+const MORE=[
+  ['2024','CRAFTBOX — Launcher','Launcher UI/UX'],
+  ['2023','AIX — Platform Website','Web & Mobile UI/UX'],
+  ['2022','CanMore — Healthcare App','Mobile UX/UI · Wireframing'],
+  ['2022','BORA 2.0','Web & Mobile UI/UX'],
+  ['2021','Fredit — Mobile App','Mobile UI/UX'],
+  ['2021','DATECHNIQ — Smart Helmet & HUD','Mobile UI/UX · HUD Interface'],
+  ['2021','더벌자 — Job Matching Platform','Brand · Web & Mobile UI/UX'],
+  ['2021','PORTLOGICS — TOMS','Brand · Web UI/UX'],
+  ['2020–2021','ED Online — K-POP Platform','Web & Mobile UI/UX'],
+  ['2020','KT — Cloud Platform','Web & Mobile UI/UX'],
+  ['2020','SK hynix — GALLERY-H Exhibition','Exhibition Wall & Leaflet'],
+];
+$('ml').innerHTML=MORE.map(w=>`<li><span class="y">${w[0]}</span><span>${w[1]}<small>${w[2]}</small></span></li>`).join('');
+$('wl').innerHTML=WORK.map(w=>`<li><span class="y">${w[0]}</span><span class="p">${w[1]}</span><span class="s">${w[2]}</span></li>`).join('');
+
+/* dot grid */
+const dots=$('dots');
+dots.innerHTML=Array.from({length:16},(_,i)=>`<i class="${i===15?'me':''}"></i>`).join('');
+const ds=[...dots.children];
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!calm){
+  addEventListener('pointermove',e=>{
+    for(const d of ds){if(d.classList.contains('me'))continue;
+      const r=d.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;
+      const dx=e.clientX-cx,dy=e.clientY-cy,dist=Math.hypot(dx,dy);
+      const k=Math.max(0,1-dist/320);
+      d.style.transform=`translate(${dx*k*.12}px,${dy*k*.12}px) scale(${1-k*.35})`;
+    }
+  });
+  let t=0;setInterval(()=>{const d=ds[(t++*7)%15];d.style.background='var(--ink)';setTimeout(()=>d.style.background='',900)},1800);
+}
+
+/* the 'me' dot falls into the dark band on scroll */
+{
+  const me=ds[15],works=document.querySelector('.works'),giant=$('giant');
+  let base=0,drop=0,sc=1;
+  const fit=()=>{giant.style.fontSize='100px';const avail=giant.clientWidth-parseFloat(getComputedStyle(giant).paddingLeft)*2;
+    const r=document.createRange();r.selectNodeContents(giant);giant.style.fontSize=(100*avail/r.getBoundingClientRect().width)+'px'};
+  // y of the top of the capitals (W, S) in the giant type, in viewport px
+  const capTop=()=>{const m=document.createElement('i');m.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline';
+    giant.appendChild(m);const base=m.getBoundingClientRect().top;m.remove();
+    const cs=getComputedStyle(giant),c=document.createElement('canvas').getContext('2d');
+    c.font=`${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;return base-c.measureText('W').actualBoundingBoxAscent};
+  const measure=()=>{fit();me.style.transform='';const r=me.getBoundingClientRect(),g=giant.getBoundingClientRect(),fs=parseFloat(giant.style.fontSize);
+    base=r.bottom+scrollY;drop=(capTop()+scrollY-(innerWidth<768?24:32))-base;sc=Math.min(1,fs*.55/r.height)}; // land: dot rests on the top of the giant type
+  const fall=()=>{
+    const p=calm?0:Math.min(1,Math.max(0,scrollY/(Math.max(drop,1)*1.1)));
+    const e=p*p; // gravity-ish ease-in
+    me.style.transformOrigin='50% 100%';me.style.transform=`translateY(${e*drop}px) scale(${1-(1-sc)*e})`;
+    me.style.background=e>.82?'var(--red)':'';
+  };
+  measure();fall();
+  document.fonts&&document.fonts.ready.then(()=>{measure();fall()});
+  addEventListener('scroll',fall,{passive:true});
+  addEventListener('resize',()=>{measure();fall()});
+}
+
+/* gallery */
+const TAGS=['ALL'];let cur='ALL';
+const fil=$('filters'),gal=$('gal');
+const drawF=()=>fil.innerHTML=TAGS.map(t=>`<button aria-pressed="${t===cur}" data-t="${t}">${t==='ALL'?'All':t[0]+t.slice(1).toLowerCase()}</button>`).join('');
+const drawG=()=>gal.innerHTML=POSTS.map((p,i)=>cur!=='ALL'&&p.g!==cur?'':`
+  <button class="tile" data-i="${i}" aria-label="${p.t} 열기">
+    <div class="im"><img src="${src(p.imgs[0])}" alt="${p.t}" loading="lazy">${p.imgs.length>1?`<span class="n">1/${p.imgs.length}</span>`:''}</div>
+    <div class="cap"><span>${p.t}</span><span>${p.g}</span></div>
+  </button>`).join('');
+fil.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.t;drawF();drawG()});
+fetch('posts.json',{cache:'no-cache'}).then(r=>r.ok?r.json():[]).then(d=>{
+  POSTS=Array.isArray(d)?d:[];
+  if(!POSTS.length)return;            // nothing uploaded yet: Archive stays hidden
+  $('archive').hidden=false;$('navArchive').hidden=false;
+  const used=new Set(POSTS.map(p=>p.g));
+  TAGS.splice(0,TAGS.length,'ALL',...['BOOK','NOTE','GRAPHIC','LAB'].filter(t=>used.has(t)));
+  drawF();drawG();
+}).catch(()=>{});
+
+/* lightbox */
+const lb=$('lb');let P=null,k=0,last=null;
+const show=()=>{$('lbI').src=src(P.imgs[k]);$('lbI').alt=`${P.t} ${k+1}`;$('lbT').textContent=P.t;$('lbG').textContent=P.g+(P.imgs.length>1?` · ${k+1}/${P.imgs.length}`:'');
+  $('pips').innerHTML=P.imgs.length>1?P.imgs.map((_,j)=>`<i class="${j===k?'on':''}"></i>`).join(''):'';
+  $('lbP').style.visibility=$('lbN').style.visibility=P.imgs.length>1?'visible':'hidden'};
+const open=i=>{last=document.activeElement;P=POSTS[i];k=0;show();lb.classList.add('on');document.body.style.overflow='hidden';$('lbX').focus()};
+const close=()=>{lb.classList.remove('on');document.body.style.overflow='';last&&last.focus()};
+const go=d=>{if(!P||P.imgs.length<2)return;k=(k+d+P.imgs.length)%P.imgs.length;show()};
+gal.addEventListener('click',e=>{const t=e.target.closest('.tile');if(t)open(+t.dataset.i)});
+$('lbX').onclick=close;$('lbP').onclick=()=>go(-1);$('lbN').onclick=()=>go(1);
+lb.addEventListener('click',e=>{if(e.target===lb||e.target.id==='stage')close()});
+addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+let sx=null;const st=$('stage');
+st.addEventListener('pointerdown',e=>sx=e.clientX);
+st.addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx;sx=null;if(Math.abs(dx)>40)go(dx<0?1:-1)});
+}
+</script>
+</body>
+</html>
